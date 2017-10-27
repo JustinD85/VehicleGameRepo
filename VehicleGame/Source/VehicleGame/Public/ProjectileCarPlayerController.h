@@ -18,4 +18,12 @@ public:
 	AProjectileCar* GetControlledProjectileCar() const;
 	
 	void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
+private:
+	//Start moving barrel so that a shot would hit where crosshair intersects
+	//the world.
+	void AimTowardsCrosshair();
+	
+	//Return OUT parameter, true if hti landscape
+	bool GetSightRayHitLocation(FVector& OUTHitLocation) const;
 };
