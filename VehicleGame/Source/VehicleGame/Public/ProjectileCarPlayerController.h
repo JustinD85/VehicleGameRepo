@@ -20,10 +20,22 @@ public:
 	void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 private:
-	//Start moving barrel so that a shot would hit where crosshair intersects
+	//Start moving barrel so that a shot would hit where cross hair intersects
 	//the world.
 	void AimTowardsCrosshair();
 	
 	//Return OUT parameter, true if hti landscape
 	bool GetSightRayHitLocation(FVector& OUTHitLocation) const;
+	UPROPERTY(EditAnywhere)
+		float CrosshairXLocation = 0.5;
+	UPROPERTY(EditAnywhere)
+		float CrosshairYLocation = 0.333;
+
+	FVector* WorldDirection;
+	bool GetLookDirection(FVector2D  ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+	UPROPERTY(EditAnywhere)
+		float LineTraceRange = 1000000;
+
 };

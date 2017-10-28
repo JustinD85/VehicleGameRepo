@@ -32,3 +32,7 @@ void AProjectileCar::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 }
 
+void AProjectileCar::AimAT(FVector OUTHitLocation) {
+	auto ProjectileCarName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s is aiming at %s "),*ProjectileCarName, *OUTHitLocation.ToString());
+};

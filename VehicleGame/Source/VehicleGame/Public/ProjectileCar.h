@@ -14,6 +14,7 @@ class VEHICLEGAME_API AProjectileCar : public APawn
 public:
 	// Sets default values for this pawn's properties
 	AProjectileCar();
+	void AimAT(FVector OUTHitLocation);
 
 protected:
 	// Called when the game starts or when spawned

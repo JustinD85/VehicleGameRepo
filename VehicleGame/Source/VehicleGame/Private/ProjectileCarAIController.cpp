@@ -26,6 +26,18 @@ void AProjectileCarAIController::BeginPlay()
 	}
 }
 
+void AProjectileCarAIController::Tick(float DeltaTime) {
+
+	Super::Tick(DeltaTime);
+	if (GetControlledProjectileCar()) {
+		//TODO move to player
+		// Aim towards player
+		GetControlledProjectileCar()->AimAT(GetPlayerProjectileCar()->GetTargetLocation());
+		// fire if ready
+	}
+	
+}
+
 AProjectileCar* AProjectileCarAIController::GetControlledProjectileCar() const {
 
 	return Cast <AProjectileCar>(GetPawn());
